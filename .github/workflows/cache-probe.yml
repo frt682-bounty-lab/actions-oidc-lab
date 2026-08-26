@@ -1,0 +1,12 @@
+name: cache-probe
+on: [push, pull_request]
+jobs:
+  c:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path: .cache
+          key: bounty-${{ runner.os }}-static
+      - run: mkdir -p .cache && echo SECRET-CACHE > .cache/x
