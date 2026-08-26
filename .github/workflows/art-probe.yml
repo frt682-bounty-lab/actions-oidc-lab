@@ -1,0 +1,11 @@
+name: art-probe
+on: workflow_dispatch
+jobs:
+  a:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo SECRET-ARTIFACT-CONTENT > out.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bounty-secret-art
+          path: out.txt
